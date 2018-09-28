@@ -28,6 +28,7 @@ def assert_contains(expected, collection):
         raise Exception("Error in test")
 
 def assert_similars(expected, actual):
-    assert_equals(len(expected), len(actual))
+    if not len(expected) == len(actual):
+        print("Expected size of", expected, "(", len(expected), ") to be", len(actual), "the size of", actual)
     for e in expected:
         assert_contains(e, actual)
